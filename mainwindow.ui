@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Jake Brunton</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="windowModality">
@@ -20,7 +21,11 @@
    <string>C++ Notepad</string>
   </property>
   <property name="windowIcon">
-   <iconset theme="accessories-text-editor"/>
+   <iconset theme="accessories-text-editor">
+    <normaloff>.</normaloff>.</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralwidget">
    <property name="enabled">
@@ -51,7 +56,7 @@
      <x>0</x>
      <y>0</y>
      <width>741</width>
-     <height>21</height>
+     <height>22</height>
     </rect>
    </property>
    <property name="contextMenuPolicy">
@@ -156,8 +161,8 @@
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset>
-     <normaloff>images/print.png</normaloff>images/print.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/print.png</normaloff>:/images/images/print.png</iconset>
    </property>
    <property name="text">
     <string>Print</string>
@@ -165,8 +170,8 @@
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset>
-     <normaloff>images/copy.png</normaloff>images/copy.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/copy.png</normaloff>:/images/images/copy.png</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
@@ -174,8 +179,8 @@
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset>
-     <normaloff>images/paste.png</normaloff>images/paste.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/paste.png</normaloff>:/images/images/paste.png</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
@@ -183,8 +188,8 @@
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset>
-     <normaloff>images/cut.png</normaloff>images/cut.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/cut.png</normaloff>:/images/images/cut.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -192,8 +197,8 @@
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset>
-     <normaloff>images/undo.png</normaloff>images/undo.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/undo.png</normaloff>:/images/images/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
@@ -201,8 +206,8 @@
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset>
-     <normaloff>images/redo.png</normaloff>images/redo.png</iconset>
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/redo.png</normaloff>:/images/images/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>

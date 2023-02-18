@@ -56,8 +56,15 @@ public:
         MainWindow->setWindowModality(Qt::NonModal);
         MainWindow->resize(741, 535);
         MainWindow->setMouseTracking(true);
-        QIcon icon(QIcon::fromTheme(QString::fromUtf8("accessories-text-editor")));
+        QIcon icon;
+        QString iconThemeName = QString::fromUtf8("accessories-text-editor");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon.addFile(QString::fromUtf8("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
         MainWindow->setWindowIcon(icon);
+        MainWindow->setAutoFillBackground(false);
         actionNew = new QAction(MainWindow);
         actionNew->setObjectName("actionNew");
         QIcon icon1;
@@ -78,32 +85,32 @@ public:
         actionPrint = new QAction(MainWindow);
         actionPrint->setObjectName("actionPrint");
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("images/print.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8(":/images/images/print.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionPrint->setIcon(icon4);
         actionCopy = new QAction(MainWindow);
         actionCopy->setObjectName("actionCopy");
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("images/copy.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8(":/images/images/copy.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionCopy->setIcon(icon5);
         actionPaste = new QAction(MainWindow);
         actionPaste->setObjectName("actionPaste");
         QIcon icon6;
-        icon6.addFile(QString::fromUtf8("images/paste.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QString::fromUtf8(":/images/images/paste.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionPaste->setIcon(icon6);
         actionCut = new QAction(MainWindow);
         actionCut->setObjectName("actionCut");
         QIcon icon7;
-        icon7.addFile(QString::fromUtf8("images/cut.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon7.addFile(QString::fromUtf8(":/images/images/cut.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionCut->setIcon(icon7);
         actionUndo = new QAction(MainWindow);
         actionUndo->setObjectName("actionUndo");
         QIcon icon8;
-        icon8.addFile(QString::fromUtf8("images/undo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QString::fromUtf8(":/images/images/undo.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionUndo->setIcon(icon8);
         actionRedo = new QAction(MainWindow);
         actionRedo->setObjectName("actionRedo");
         QIcon icon9;
-        icon9.addFile(QString::fromUtf8("images/redo.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon9.addFile(QString::fromUtf8(":/images/images/redo.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionRedo->setIcon(icon9);
         actionAbout = new QAction(MainWindow);
         actionAbout->setObjectName("actionAbout");
@@ -125,7 +132,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 741, 21));
+        menubar->setGeometry(QRect(0, 0, 741, 22));
         menubar->setContextMenuPolicy(Qt::ActionsContextMenu);
         menubar->setDefaultUp(false);
         menubar->setNativeMenuBar(false);

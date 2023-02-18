@@ -26,18 +26,34 @@ void MainWindow::on_actionNew_triggered()
 
 void MainWindow::on_actionOpen_triggered()
 {
-    QString filename = QFileDialog::getOpenFileName(this, "File Name");
+    QFileDialog fdialog(this);
+    fdialog.setAttribute(Qt::WA_DeleteOnClose);
+    fdialog.setFileMode(QFileDialog::ExistingFile);
+    fdialog.setNameFilter(tr("Text File (*.txt)"));
+    fdialog.selectNameFilter("Text file (*.txt)");
+    fdialog.setViewMode(QFileDialog::Detail);
+    fdialog.setDirectory(QDir::homePath());
+    QString filename = fdialog.getOpenFileName(this);
+    //fdialog.fileSelected(filename);
+    //fdialog.exec();
     QFile file(filename);
     currentfile = filename;
-    if (!file.open(QIODevice::ReadOnly | QFile::Text)){
+    if (filename.isEmpty()) {
+        fdialog.reject();
+    }
+    else if (!file.open(QIODevice::ReadOnly | QFile::Text)) {
         QMessageBox::warning(this, "Warning", "Cannot open file: " + file.errorString());
         return;
     }
-    setWindowTitle(filename);
-    QTextStream in(&file);
-    QString text = in.readAll();
-    ui->textEdit->setText(text);
-    file.close();
+    else {
+        setWindowTitle(filename);
+        QTextStream in(&file);
+        QString text = in.readAll();
+        ui->textEdit->setText(text);
+        file.close();
+    }
+
+
 }
 
 void MainWindow::on_actionSave_As_triggered()
@@ -111,6 +127,6 @@ void MainWindow::on_actionRedo_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad");
+    QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad\nGoogle Material Icons used under Apache License 2.0:\nhttps://www.apache.org/licenses/LICENSE-2.0.html");
 }
 

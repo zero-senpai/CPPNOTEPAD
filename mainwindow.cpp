@@ -22,6 +22,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::ToggleSave(bool flag) {
+    if (flag) {
+        ui->actionSave->setEnabled(true);
+    }
+    else {
+        ui->actionSave->setEnabled(false);
+    }
+}
+
+void MainWindow::ToggleNew(bool flag) {
+    if (flag) {
+        ui->actionNew->setEnabled(true);
+    }
+    else {
+        ui->actionNew->setEnabled(false);
+    }
+}
 
 void MainWindow::on_actionNew_triggered()
 {

@@ -68,6 +68,7 @@ void MainWindow::on_actionOpen_triggered()
     }
     else {
         setWindowTitle(filename);
+        activefile = filename;        //Call global QString activefile to set the open file name again
         QTextStream in(&file);
         QString text = in.readAll();
         ui->textEdit->setText(text);
@@ -87,6 +88,7 @@ void MainWindow::on_actionSave_As_triggered()
     }
 
     currentfile = filename;
+    activefile = filename;
     setWindowTitle(filename);
     QTextStream out(&file);
     QString text = ui->textEdit->toPlainText();

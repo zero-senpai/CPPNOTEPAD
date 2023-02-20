@@ -39,6 +39,8 @@ public:
     QAction *actionRedo;
     QAction *actionAbout;
     QAction *actionSave;
+    QAction *actionFont;
+    QAction *actionBackground_Color;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
@@ -47,6 +49,7 @@ public:
     QMenu *menuFile;
     QMenu *menuEdit;
     QMenu *menuHelp;
+    QMenu *menuDesign;
     QStatusBar *statusBar;
     QToolBar *toolBar;
 
@@ -120,6 +123,13 @@ public:
         QIcon icon10;
         icon10.addFile(QString::fromUtf8(":/images/images/save.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSave->setIcon(icon10);
+        actionFont = new QAction(MainWindow);
+        actionFont->setObjectName("actionFont");
+        QIcon icon11;
+        icon11.addFile(QString::fromUtf8(":/images/images/font.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionFont->setIcon(icon11);
+        actionBackground_Color = new QAction(MainWindow);
+        actionBackground_Color->setObjectName("actionBackground_Color");
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
@@ -148,6 +158,8 @@ public:
         menuEdit->setObjectName("menuEdit");
         menuHelp = new QMenu(menubar);
         menuHelp->setObjectName("menuHelp");
+        menuDesign = new QMenu(menubar);
+        menuDesign->setObjectName("menuDesign");
         MainWindow->setMenuBar(menubar);
         statusBar = new QStatusBar(MainWindow);
         statusBar->setObjectName("statusBar");
@@ -160,6 +172,7 @@ public:
 
         menubar->addAction(menuFile->menuAction());
         menubar->addAction(menuEdit->menuAction());
+        menubar->addAction(menuDesign->menuAction());
         menubar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionNew);
         menuFile->addAction(actionOpen);
@@ -173,6 +186,8 @@ public:
         menuEdit->addAction(actionUndo);
         menuEdit->addAction(actionRedo);
         menuHelp->addAction(actionAbout);
+        menuDesign->addAction(actionFont);
+        menuDesign->addAction(actionBackground_Color);
         toolBar->addAction(actionNew);
         toolBar->addAction(actionOpen);
         toolBar->addAction(actionSave);
@@ -202,9 +217,12 @@ public:
         actionRedo->setText(QCoreApplication::translate("MainWindow", "Redo", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
         actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
+        actionFont->setText(QCoreApplication::translate("MainWindow", "Font", nullptr));
+        actionBackground_Color->setText(QCoreApplication::translate("MainWindow", "Background Color", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));
+        menuDesign->setTitle(QCoreApplication::translate("MainWindow", "Design", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi
 

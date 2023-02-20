@@ -9,6 +9,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QPainter>
+#include <QFontDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -50,6 +51,8 @@ private slots:
     void on_actionSave_triggered();
 
     void on_textEdit_textChanged();
+    void on_actionFont_triggered();
+
 private:
     Ui::MainWindow *ui;
     QString currentfile = "";

@@ -183,3 +183,14 @@ void MainWindow::on_textEdit_textChanged()
     ToggleNew(true);
 }
 
+
+void MainWindow::on_actionFont_triggered()
+{
+    bool t;
+
+    QFont font = QFontDialog::getFont(&t, QFont("Calibri", 12), this);
+    if (t) {
+        ui->textEdit->setFont(font);
+    }
+}
+

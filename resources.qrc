@@ -11,5 +11,6 @@
         <file>images/add.png</file>
         <file>images/copy.png</file>
         <file>images/print.png</file>
+        <file>images/saveas.png</file>
     </qresource>
 </RCC>

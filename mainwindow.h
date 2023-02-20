@@ -47,6 +47,9 @@ private slots:
 
     void on_actionAbout_triggered();
 
+    void on_actionSave_triggered();
+
+    void on_textEdit_textChanged();
 private:
     Ui::MainWindow *ui;
     QString currentfile = "";

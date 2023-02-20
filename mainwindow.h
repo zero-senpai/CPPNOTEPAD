@@ -53,6 +53,5 @@ private slots:
 private:
     Ui::MainWindow *ui;
     QString currentfile = "";
-    QString* tempfile = &currentfile;
 };
 #endif // MAINWINDOW_H

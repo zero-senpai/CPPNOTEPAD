@@ -57,8 +57,6 @@ void MainWindow::on_actionOpen_triggered()
     fdialog.setViewMode(QFileDialog::Detail);
     fdialog.setDirectory(QDir::homePath());
     QString filename = fdialog.getOpenFileName(this);
-    //fdialog.fileSelected(filename);
-    //fdialog.exec();
     QFile file(filename);
     currentfile = filename;
     if (filename.isEmpty()) {

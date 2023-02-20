@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <fstream>
+#include <string>
+using namespace std;
+QString activefile;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->menubar->setNativeMenuBar(false);
     ui->menubar->setVisible(true);
     this->setCentralWidget(ui->textEdit);
+    ToggleSave(false);
+    ToggleNew(false);
 }
 
 MainWindow::~MainWindow()
@@ -16,6 +22,23 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::ToggleSave(bool flag) {
+    if (flag) {
+        ui->actionSave->setEnabled(true);
+    }
+    else {
+        ui->actionSave->setEnabled(false);
+    }
+}
+
+void MainWindow::ToggleNew(bool flag) {
+    if (flag) {
+        ui->actionNew->setEnabled(true);
+    }
+    else {
+        ui->actionNew->setEnabled(false);
+    }
+}
 
 void MainWindow::on_actionNew_triggered()
 {
@@ -34,8 +57,6 @@ void MainWindow::on_actionOpen_triggered()
     fdialog.setViewMode(QFileDialog::Detail);
     fdialog.setDirectory(QDir::homePath());
     QString filename = fdialog.getOpenFileName(this);
-    //fdialog.fileSelected(filename);
-    //fdialog.exec();
     QFile file(filename);
     currentfile = filename;
     if (filename.isEmpty()) {
@@ -47,6 +68,7 @@ void MainWindow::on_actionOpen_triggered()
     }
     else {
         setWindowTitle(filename);
+        activefile = filename;        //Call global QString activefile to set the open file name again
         QTextStream in(&file);
         QString text = in.readAll();
         ui->textEdit->setText(text);
@@ -66,6 +88,7 @@ void MainWindow::on_actionSave_As_triggered()
     }
 
     currentfile = filename;
+    activefile = filename;
     setWindowTitle(filename);
     QTextStream out(&file);
     QString text = ui->textEdit->toPlainText();
@@ -128,5 +151,46 @@ void MainWindow::on_actionRedo_triggered()
 void MainWindow::on_actionAbout_triggered()
 {
     QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad\nGoogle Material Icons used under Apache License 2.0:\nhttps://www.apache.org/licenses/LICENSE-2.0.html");
+}
+
+/*
+*   @func       - Saves the current open file without the use of QDialogs based on the activefile QString value which is set when the Open function is used.
+*   @params     - None
+*/
+void MainWindow::on_actionSave_triggered()
+{
+    if (activefile == " ") {
+        QMessageBox::warning(this, "Notice:", "\n No file is currently opened and edited.");
+        return;
+    }
+    else {
+        fstream file(activefile.toStdString());
+        QString text = ui->textEdit->toPlainText();
+        file << text.toStdString();
+        file.close();
+    }
+}
+
+
+void MainWindow::on_textEdit_textChanged()
+{
+    if (activefile.isEmpty()) {
+        ToggleSave(false);
+    }
+    else {
+        ToggleSave(true);
+    }
+    ToggleNew(true);
+}
+
+
+void MainWindow::on_actionFont_triggered()
+{
+    bool t;
+
+    QFont font = QFontDialog::getFont(&t, QFont("Calibri", 12), this);
+    if (t) {
+        ui->textEdit->setFont(font);
+    }
 }
 

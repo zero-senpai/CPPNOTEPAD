@@ -9,6 +9,7 @@
 #include <QPrinter>
 #include <QPrintDialog>
 #include <QPainter>
+#include <QFontDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -20,6 +21,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void ToggleSave(bool flag);
+    void ToggleNew(bool flag);
     ~MainWindow();
 
 private slots:
@@ -44,6 +47,11 @@ private slots:
     void on_actionRedo_triggered();
 
     void on_actionAbout_triggered();
+
+    void on_actionSave_triggered();
+
+    void on_textEdit_textChanged();
+    void on_actionFont_triggered();
 
 private:
     Ui::MainWindow *ui;

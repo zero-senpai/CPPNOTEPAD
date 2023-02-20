@@ -79,7 +79,7 @@ public:
         actionSave_As = new QAction(MainWindow);
         actionSave_As->setObjectName("actionSave_As");
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8(":/images/images/save.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/images/images/saveas.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionSave_As->setIcon(icon3);
         actionExit = new QAction(MainWindow);
         actionExit->setObjectName("actionExit");
@@ -117,7 +117,9 @@ public:
         actionAbout->setObjectName("actionAbout");
         actionSave = new QAction(MainWindow);
         actionSave->setObjectName("actionSave");
-        actionSave->setIcon(icon3);
+        QIcon icon10;
+        icon10.addFile(QString::fromUtf8(":/images/images/save.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionSave->setIcon(icon10);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
@@ -173,7 +175,7 @@ public:
         menuHelp->addAction(actionAbout);
         toolBar->addAction(actionNew);
         toolBar->addAction(actionOpen);
-        toolBar->addAction(actionSave_As);
+        toolBar->addAction(actionSave);
         toolBar->addAction(actionCopy);
         toolBar->addAction(actionPaste);
         toolBar->addAction(actionCut);

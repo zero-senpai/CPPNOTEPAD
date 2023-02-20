@@ -20,6 +20,8 @@ class MainWindow : public QMainWindow
 
 public:
     MainWindow(QWidget *parent = nullptr);
+    void ToggleSave(bool flag);
+    void ToggleNew(bool flag);
     ~MainWindow();
 
 private slots:

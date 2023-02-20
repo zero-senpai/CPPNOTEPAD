@@ -153,3 +153,33 @@ void MainWindow::on_actionAbout_triggered()
     QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad\nGoogle Material Icons used under Apache License 2.0:\nhttps://www.apache.org/licenses/LICENSE-2.0.html");
 }
 
+/*
+*   @func       - Saves the current open file without the use of QDialogs based on the activefile QString value which is set when the Open function is used.
+*   @params     - None
+*/
+void MainWindow::on_actionSave_triggered()
+{
+    if (activefile == " ") {
+        QMessageBox::warning(this, "Notice:", "\n No file is currently opened and edited.");
+        return;
+    }
+    else {
+        fstream file(activefile.toStdString());
+        QString text = ui->textEdit->toPlainText();
+        file << text.toStdString();
+        file.close();
+    }
+}
+
+
+void MainWindow::on_textEdit_textChanged()
+{
+    if (activefile.isEmpty()) {
+        ToggleSave(false);
+    }
+    else {
+        ToggleSave(true);
+    }
+    ToggleNew(true);
+}
+

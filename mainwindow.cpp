@@ -1,5 +1,9 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <fstream>
+#include <string>
+using namespace std;
+QString activefile;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -9,6 +13,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->menubar->setNativeMenuBar(false);
     ui->menubar->setVisible(true);
     this->setCentralWidget(ui->textEdit);
+    ToggleSave(false);
+    ToggleNew(false);
 }
 
 MainWindow::~MainWindow()

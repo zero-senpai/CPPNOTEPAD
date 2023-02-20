@@ -38,6 +38,7 @@ public:
     QAction *actionUndo;
     QAction *actionRedo;
     QAction *actionAbout;
+    QAction *actionSave;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
@@ -114,6 +115,9 @@ public:
         actionRedo->setIcon(icon9);
         actionAbout = new QAction(MainWindow);
         actionAbout->setObjectName("actionAbout");
+        actionSave = new QAction(MainWindow);
+        actionSave->setObjectName("actionSave");
+        actionSave->setIcon(icon3);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
@@ -132,7 +136,7 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
-        menubar->setGeometry(QRect(0, 0, 741, 22));
+        menubar->setGeometry(QRect(0, 0, 741, 21));
         menubar->setContextMenuPolicy(Qt::ActionsContextMenu);
         menubar->setDefaultUp(false);
         menubar->setNativeMenuBar(false);
@@ -157,6 +161,7 @@ public:
         menubar->addAction(menuHelp->menuAction());
         menuFile->addAction(actionNew);
         menuFile->addAction(actionOpen);
+        menuFile->addAction(actionSave);
         menuFile->addAction(actionSave_As);
         menuFile->addAction(actionPrint);
         menuFile->addAction(actionExit);
@@ -194,6 +199,7 @@ public:
         actionUndo->setText(QCoreApplication::translate("MainWindow", "Undo", nullptr));
         actionRedo->setText(QCoreApplication::translate("MainWindow", "Redo", nullptr));
         actionAbout->setText(QCoreApplication::translate("MainWindow", "About", nullptr));
+        actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));

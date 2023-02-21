@@ -55,6 +55,9 @@ private slots:
     void on_textEdit_textChanged();
     void on_actionFont_triggered();
 
+    void on_actionBackground_Color_triggered();
+
+
 private:
     Ui::MainWindow *ui;
     QString currentfile = "";

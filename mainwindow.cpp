@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 QString activefile;
+QFont font("Calibri", 12);
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)

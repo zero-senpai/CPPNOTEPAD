@@ -198,3 +198,11 @@ void MainWindow::on_actionFont_triggered()
     }
 }
 
+
+void MainWindow::on_actionBackground_Color_triggered()
+{
+    QColor chosencolor = QColorDialog::getColor(Qt::white, this);
+    QPalette p = ui->textEdit->palette();
+    p.setColor(QPalette::Base, chosencolor);
+    ui->textEdit->setPalette(p);
+}

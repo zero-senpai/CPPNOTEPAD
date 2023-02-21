@@ -207,3 +207,12 @@ void MainWindow::on_actionBackground_Color_triggered()
     p.setColor(QPalette::Base, chosencolor);
     ui->textEdit->setPalette(p);
 }
+
+void MainWindow::on_actionFont_Color_triggered()
+{
+    QColor chosencolor = QColorDialog::getColor(Qt::black, this);
+    QPalette p = ui->textEdit->palette();
+    p.setColor(QPalette::Text, chosencolor);
+    ui->textEdit->setPalette(p);
+}
+

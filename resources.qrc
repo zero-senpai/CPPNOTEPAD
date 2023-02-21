@@ -15,5 +15,6 @@
         <file>images/background.png</file>
         <file>images/font.png</file>
         <file>images/settings.png</file>
+        <file>images/notepad.ico</file>
     </qresource>
 </RCC>

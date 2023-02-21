@@ -130,6 +130,9 @@ public:
         actionFont->setIcon(icon11);
         actionBackground_Color = new QAction(MainWindow);
         actionBackground_Color->setObjectName("actionBackground_Color");
+        QIcon icon12;
+        icon12.addFile(QString::fromUtf8(":/images/images/background.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionBackground_Color->setIcon(icon12);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);

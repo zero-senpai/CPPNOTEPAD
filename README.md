@@ -6,4 +6,5 @@ This is a simple notepad application I am building to learn more about the Qt pl
 - Change font, font color, and background color
 
 # INSTALL
-Compile the source code from releases with the binaries or use the installer
+Compile the source code from releases with the binaries or use the [Installer app](https://www.mediafire.com/file/dymf2d1y250w2a6/cppnotepad_setup.exe/file)
+

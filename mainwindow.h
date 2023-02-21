@@ -56,7 +56,7 @@ private slots:
     void on_actionFont_triggered();
 
     void on_actionBackground_Color_triggered();
-
+    void on_actionFont_Color_triggered();
 
 private:
     Ui::MainWindow *ui;

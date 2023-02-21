@@ -41,6 +41,7 @@ public:
     QAction *actionSave;
     QAction *actionFont;
     QAction *actionBackground_Color;
+    QAction *actionFont_Color;
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
@@ -133,6 +134,9 @@ public:
         QIcon icon12;
         icon12.addFile(QString::fromUtf8(":/images/images/background.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionBackground_Color->setIcon(icon12);
+        actionFont_Color = new QAction(MainWindow);
+        actionFont_Color->setObjectName("actionFont_Color");
+        actionFont_Color->setIcon(icon11);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName("centralwidget");
         centralwidget->setEnabled(true);
@@ -190,6 +194,7 @@ public:
         menuEdit->addAction(actionRedo);
         menuHelp->addAction(actionAbout);
         menuDesign->addAction(actionFont);
+        menuDesign->addAction(actionFont_Color);
         menuDesign->addAction(actionBackground_Color);
         toolBar->addAction(actionNew);
         toolBar->addAction(actionOpen);
@@ -222,6 +227,7 @@ public:
         actionSave->setText(QCoreApplication::translate("MainWindow", "Save", nullptr));
         actionFont->setText(QCoreApplication::translate("MainWindow", "Font", nullptr));
         actionBackground_Color->setText(QCoreApplication::translate("MainWindow", "Background Color", nullptr));
+        actionFont_Color->setText(QCoreApplication::translate("MainWindow", "Font Color", nullptr));
         menuFile->setTitle(QCoreApplication::translate("MainWindow", "File", nullptr));
         menuEdit->setTitle(QCoreApplication::translate("MainWindow", "Edit", nullptr));
         menuHelp->setTitle(QCoreApplication::translate("MainWindow", "Help", nullptr));

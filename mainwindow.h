@@ -10,6 +10,7 @@
 #include <QPrintDialog>
 #include <QPainter>
 #include <QFontDialog>
+#include <QColorDialog>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -22,6 +23,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     void ToggleSave(bool flag);
+    QColorDialog colord;
     void ToggleNew(bool flag);
     ~MainWindow();
 

@@ -246,6 +246,10 @@
    </property>
   </action>
   <action name="actionBackground_Color">
+   <property name="icon">
+    <iconset resource="resources.qrc">
+     <normaloff>:/images/images/background.png</normaloff>:/images/images/background.png</iconset>
+   </property>
    <property name="text">
     <string>Background Color</string>
    </property>

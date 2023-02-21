@@ -152,7 +152,7 @@ void MainWindow::on_actionRedo_triggered()
 
 void MainWindow::on_actionAbout_triggered()
 {
-    QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad v1.2.0\n\nGoogle Material Icons used under Apache License 2.0:\nhttps://www.apache.org/licenses/LICENSE-2.0.html");
+    QMessageBox::about(this, "About", "By Jake Brunton 2023\n\nSimple C++ Notepad v1.2.0\n\nGoogle Material Icons used under Apache License 2.0:\nhttps://www.apache.org/licenses/LICENSE-2.0.html\n\n Built on the Qt 6.4.x platform License: https://www.qt.io/terms-conditions/\n");
 }
 
 /*

@@ -187,7 +187,6 @@ void MainWindow::on_textEdit_textChanged()
 void MainWindow::on_actionFont_triggered()
 {
     bool t;
-    bool newset = false;
     QString fts;
  
     fts = ::font.toString();

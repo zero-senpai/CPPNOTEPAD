@@ -11,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    setWindowIcon(QIcon(":/images/images/notepad.ico"));
     ui->menubar->setNativeMenuBar(false);
     ui->menubar->setVisible(true);
     this->setCentralWidget(ui->textEdit);

@@ -187,10 +187,15 @@ void MainWindow::on_textEdit_textChanged()
 void MainWindow::on_actionFont_triggered()
 {
     bool t;
+    bool newset = false;
+    QString fts;
+ 
+    fts = ::font.toString();
+    ::font = QFontDialog::getFont(&t, QFont(fts, 12), this);
 
-    QFont font = QFontDialog::getFont(&t, QFont("Calibri", 12), this);
     if (t) {
-        ui->textEdit->setFont(font);
+        ui->textEdit->setFont(::font);
+        fts = ::font.toString();
     }
 }
 
